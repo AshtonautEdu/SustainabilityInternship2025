@@ -13,20 +13,22 @@ machineArgs = {
 }
 machine = machineArgs["laptop"]
 
-if (len(sys.argv) > 2):
-    sys.exit("Too many arguments.\nusage: python transcriber.py [speaker_count]")
+if not (2 <= len(sys.argv) <= 3) :
+    sys.exit("Too many arguments.\nusage: python transcriber.py input_filepath [speaker_count]")
+
+input_path = sys.argv[1]
 
 command = [
     "whisperx",
-    ".\\audio-files\\test.mp3",
+    f'{input_path}',
     "--diarize",
     "--hf_token", f'{token}',
     "--compute_type", f'{machine["compute_type"]}',
     "--output_format", "vtt",
 ]
 
-if (sys.argv[1] != None):
-    speaker_count = sys.argv[1]
+if (len(sys.argv) == 3):
+    speaker_count = sys.argv[2]
     try:
         speaker_count = int(speaker_count)
         if (speaker_count <= 0):
