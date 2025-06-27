@@ -41,6 +41,4 @@ if (len(sys.argv) == 3):
         "--max_speakers", f'{speaker_count}',
     ]
     
-print(command)
-
 subprocess.run(command)
