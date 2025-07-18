@@ -1,6 +1,14 @@
 #!/bin/sh
 
-CFLAGS="-O0" TEST_RESULTS_IDENTIFIER="-O0" TEST_RESULTS_NAME="Basic Flag Test" phoronix-test-suite benchmark scimark2
-CFLAGS="-O1" TEST_RESULTS_IDENTIFIER="-O1" TEST_RESULTS_NAME="Basic Flag Test" phoronix-test-suite benchmark scimark2
-CFLAGS="-O2" TEST_RESULTS_IDENTIFIER="-O2" TEST_RESULTS_NAME="Basic Flag Test" phoronix-test-suite benchmark scimark2
-CFLAGS="-O3" TEST_RESULTS_IDENTIFIER="-O3" TEST_RESULTS_NAME="Basic Flag Test" phoronix-test-suite benchmark scimark2
+benchmark=scimark2
+flag_list=(
+	"-O0"
+	"-O1"
+	"-O2"
+	"-O3"
+)
+test_results_name="Basic Flag Test"
+
+for flag in "${flag_list[@]}"; do
+	CFLAGS="$flag" TEST_RESULTS_IDENTIFIER="$flag" TEST_RESULTS_NAME="$test_results_name" phoronix-test-suite benchmark $benchmark
+done
