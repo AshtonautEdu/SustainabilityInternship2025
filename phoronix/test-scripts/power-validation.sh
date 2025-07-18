@@ -17,6 +17,10 @@ for func in "${funcs[@]}"; do
 	$func
 	end_energy=$(cat "$energy_file")
 	end_time=$(date +%s.%N)
-	energy=$(echo "($end_energy - $start_energy) / 1000000" | bc)
+	energy=$(echo "scale=6; ($end_energy - $start_energy) / 1000000" | bc)
+	time=$(echo "$end_time - $start_time" | bc)
+	power=$(echo "scale=3; ($energy / $time)" | bc)
 	echo "Energy used: $energy J"
+	echo "Time elapsed: $time s"
+	echo "Average power consumption: $power W"
 done
