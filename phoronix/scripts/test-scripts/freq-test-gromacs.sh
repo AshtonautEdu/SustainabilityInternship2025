@@ -1,4 +1,6 @@
 #!/bin/bash
+# This script was used to test setting maximum allowed CPU frequencies.
+# Both the changed frequencies themselves and their effects on test performance were observed.
 
 benchmark=local/gromacs-test
 test_results_name="Frequency Test - ${benchmark}"
