@@ -1,4 +1,7 @@
 #!/bin/bash
+# This script was made to see if I could use RAPL for power data gathering
+# It works, but is superfluous since PTS has its own utility for the same purpose.
+# Regardless, knowledge gained!
 
 energy_file="/sys/class/powercap/intel-rapl:0/energy_uj"
 

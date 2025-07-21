@@ -1,4 +1,6 @@
 #!/bin/sh
+# This script was used to combine previous compiler flag testing with more recently discovered performance per watt utility.
+# Performance and performance per watt results are closely related in this test.
 
 benchmark=scimark2
 flag_list=(

@@ -1,4 +1,7 @@
 #!/bin/bash
+# I used this script to observe differences between idle and load power usage as seen through RAPL
+# The data returned was in line with expected behaviour, helping to confirm that my script works as intended.
+# I was able to further corroborate this with Turbostat
 
 energy_file="/sys/class/powercap/intel-rapl:0/energy_uj"
 

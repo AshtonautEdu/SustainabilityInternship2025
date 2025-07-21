@@ -1,4 +1,6 @@
 #!/bin/sh
+# This script was made to test different compiler flags with GROMACS via CFLAGS environment variable.
+# It did not work. Current working theory is CMake shenanigans.
 
 benchmark=local/gromacs-test
 test_results_name="GROMACS Test"
