@@ -10,10 +10,14 @@ test_results_name="Compiler Test - ${benchmark}"
 compiler_list=(
 	"gcc@15.1.0"
 	"llvm@20.1.6"
+	"intel-oneapi-compilers@2025.2.0"
+	"aocc@5.0.0"
 )
 declare -A cc_dict
 cc_dict["gcc@15.1.0"]="gcc"
 cc_dict["llvm@20.1.6"]="clang"
+cc_dict["intel-oneapi-compilers@2025.2.0"]="icx"
+cc_dict["aocc@5.0.0"]="aocc"
 
 user_home=$(getent passwd $SUDO_USER | cut -d: -f6)
 source "$user_home/spack/share/spack/setup-env.sh"
