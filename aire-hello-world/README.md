@@ -1,4 +1,4 @@
-# /aire-hello-world
+# /aire-hello-world/
 
 This directory contains my first forays into using the Aire cluster. It contains basic scripts used to verify that SLURM jobs were properly submitted with respect to core and node allocation.
 
