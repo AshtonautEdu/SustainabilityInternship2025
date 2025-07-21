@@ -1,4 +1,7 @@
 #!/bin/sh
+# This file was used to try out the Phoronix Test Suite with different compiler flags.
+# It worked for SciMark2, which will happily be modified by the CFLAGS environment variable.
+# It did not work for GROMACS.
 
 benchmark=scimark2
 flag_list=(
