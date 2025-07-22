@@ -8,27 +8,34 @@
 benchmark=scimark2
 test_results_name="Compiler Test - ${benchmark}"
 compiler_list=(
-	"gcc@15.1.0"
-	"llvm@20.1.6"
-	"intel-oneapi-compilers@2025.2.0"
-	"aocc@5.0.0"
+	"gcc"
+	"clang"
+	"icx"
+	"aocc"
 )
-declare -A cc_dict
-cc_dict["gcc@15.1.0"]="gcc"
-cc_dict["llvm@20.1.6"]="clang"
-cc_dict["intel-oneapi-compilers@2025.2.0"]="icx"
-cc_dict["aocc@5.0.0"]="aocc"
+
+declare -A spack_dict
+spack_dict["gcc"]="gcc@15.1.0"
+spack_dict["llvm@20.1.6"]="llvm@20.1.6"
+spack_dict["icx"]="intel-oneapi-compilers@2025.2.0"
+spack_dict["aocc"]="aocc@5.0.0"
+
+declare -A cflag_dict
+cflag_dict["gcc"]="-O3 -march=native"
+cflag_dict["clang"]="-O3 -march=native"
+cflag_dict["icx"]="-O3 -xHost"
+cflag_dict["aocc"]="-O3 -march=native"
 
 user_home=$(getent passwd $SUDO_USER | cut -d: -f6)
 source "$user_home/spack/share/spack/setup-env.sh"
 
 for compiler in "${compiler_list[@]}"; do
-	spack load "$compiler"
-	export CC="${cc_dict[$compiler]}"
-	echo $CC
-	export TEST_RESULTS_IDENTIFIER="$compiler"
+	spack load "${spack_dict[$compiler]}"
+	export CC="$compiler"
+	export CFLAGS="${cflag_dict[$compiler]}"
+	export TEST_RESULTS_IDENTIFIER="${compiler} (${CFLAGS})"
 	export TEST_RESULTS_NAME="$test_results_name"
 	export PERFORMANCE_PER_SENSOR="cpu.power"
 	phoronix-test-suite batch-benchmark $benchmark
-	spack unload "$compiler"
+	spack unload "${spack_dict[$compiler]}"
 done
