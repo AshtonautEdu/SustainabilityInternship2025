@@ -47,5 +47,6 @@ for i in ${!flags[@]}; do
 	# or faff around with editing the graph data file afterwards.
 	# Funnily enough, I went for the option that was essentially a single-line solution!
 	ln -snf "${installed_test_path}/scimark-multi-${i}" "${installed_test_path}/scimark-multi"
+ 
 	phoronix-test-suite batch-run local/scimark-multi
 done
