@@ -12,7 +12,7 @@ Why do this? Because I thought it would be interesting! While very true, I appre
 
 ## Process
 
-PTS test profiles can have some significant variation between them, so there's not necessarily a uniform method of modifying a test profile to use Spack. To make matters worse, "documentation" and other info online can often be summarised as "go figure it out yourself". To exemplify the process, I'll detail my experiences of modifying the [pts/gromacs-1.10.0](https://openbenchmarking.org/innhold/9e6f475587a7af5fb4b3a87137372d50d779d24a) profile to produce "[gromacs-spack](https://github.com/AshtonautEdu/SustainabilityInternship2025/tree/main/phoronix/test-profiles/dev/gromacs-spack)"
+PTS test profiles can have some variation between them, so there's not necessarily a uniform method of modifying a test profile to use Spack. To make matters worse, "documentation" and other info online can often be summarised as "go figure it out yourself". To exemplify the process, I'll detail my experiences of modifying the [pts/gromacs-1.10.0](https://openbenchmarking.org/innhold/9e6f475587a7af5fb4b3a87137372d50d779d24a) profile to produce "[gromacs-spack](https://github.com/AshtonautEdu/SustainabilityInternship2025/tree/main/phoronix/test-profiles/dev/gromacs-spack)"
 
 Within the test profile, 4 files of importance can be found. Depending on your source, you may also see "`changelog.json`" and "`generated.json`" - these are not necessary for a functional test profile, and are therefore ignored. Instead, the following files are considered:
 
