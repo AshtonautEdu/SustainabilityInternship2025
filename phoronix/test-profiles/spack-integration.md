@@ -92,6 +92,9 @@ source ${SPACK_PATH}/share/spack/setup-env.sh
 spack install gromacs
 ```
 This tells the script to look out for a `SPACK_PATH` environment variable, defined before installing the test through PTS, which is how the test profile is made aware of existing Spack installations. If none is found, the install script will automatically install Spack alongside the rest of the test files. In either event, the Spack setup script is sourced, and GROMACS is installed. 
+Some considerations to be made when deciding whether to provide an existing Spack install are:
+- Sharing an existing Spack install can prevent duplicate installations of shared dependencies in other tests, potentially reducing install times and used storage.
+- Not sharing an existing Spack install means that the installed test is entirely self-contained, and no additional setup is required before installing a test.
 
 All that remains is to modify the produced run scripts. I modified the produced `run-gromacs` script like so:
 ```sh
