@@ -20,5 +20,5 @@ unset OMP_NUM_THREADS
 cd \$2
 rm -f *bench.tpr*
 \$HOME/run-gromacs > \$LOG_FILE 2>&1
-echo \$? > ~/test-exit-status" > gromacs-spack
-chmod +x gromacs-spack
+echo \$? > ~/test-exit-status" > gromacs-local
+chmod +x gromacs-local
