@@ -100,10 +100,10 @@ All that remains is to modify the produced run scripts. I modified the produced 
 ```sh
 source ${SPACK_PATH}/share/spack/setup-env.sh
 spack load gromacs
-mpirun --allow-run-as-root -np 4 gmx_mpi grompp -f pme.mdp  -o bench.tpr
-mpirun --allow-run-as-root -np 4 gmx_mpi mdrun -resethway -npme 0 -notunepme -noconfout -nsteps 1000 -v -s  bench.tpr
+mpirun --allow-run-as-root -np \$NUM_CPU_PHYSICAL_CORES gmx_mpi grompp -f pme.mdp  -o bench.tpr
+mpirun --allow-run-as-root -np \$NUM_CPU_PHYSICAL_CORES gmx_mpi mdrun -resethway -npme 0 -notunepme -noconfout -nsteps 1000 -v -s  bench.tpr
 ```
-The first two lines are necessary to make GROMACS available on test runs. With GROMACS now being loaded through Spack, the call to `gmx_mpi` is modified in the following two lines to compensate. Furthermore, `-np`'s argument has been fixed to 4 (meaning that 4 processes will run). This is strictly for the benefit for my own test machine, which can be temperamental when stressed, and may be left unaltered if your own machine is more easily placated.
+The first two lines are necessary to make GROMACS available on test runs. With GROMACS now being loaded through Spack, the call to `gmx_mpi` is modified in the following two lines to compensate.
 
 Finally, the produced `gromacs` script is altered like so:
 ```sh
