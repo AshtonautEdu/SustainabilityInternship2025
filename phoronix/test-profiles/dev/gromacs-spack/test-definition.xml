@@ -17,7 +17,6 @@
     <TestType>System</TestType>
     <License>Free</License>
     <Status>Verified</Status>
-    <ExternalDependencies>build-utilities, cmake, openmpi-development</ExternalDependencies>
     <EnvironmentSize>1100</EnvironmentSize>
     <ProjectURL>https://www.gromacs.org/</ProjectURL>
     <RepositoryURL>https://github.com/gromacs/gromacs</RepositoryURL>
