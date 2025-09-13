@@ -26,8 +26,8 @@ Some preliminary findings were gained while testing benchmarking methods during 
 
 One avenue of investigation was the impacts of compilers on the raw performance and energy efficiency of compiled programs. Intel, for example, offers a deprecated "classic" set of its oneAPI compilers alongside the set of compilers it currently supports [^8]. Without further exploration, it might be considered reasonable to assume that the more modern compilers (that Intel themselves encourage the use of [^9]) would be more performant, if not more energy-efficient. However, preliminary testing suggests that this is not always the case.
 
-![[1-1.png]]
-![[1-2.png]]
+![](/results/intel-oneapi-comparison/1-1.png)
+![](/results/intel-oneapi-comparison/1-2.png)
 [^c]
 *A comparison of Intel compilers using the SciMark 2.0 PTS test profile [^10]. For both compilers, the compiler flags used were  `-O3 -march=native -axCORE-AVX2` .*
 
@@ -35,7 +35,7 @@ The above graphs show the difference in raw performance and performance per watt
 
 The impacts on raw performance and energy efficiency produced by setting upper limits on CPU frequency was also investigated. 
 
-![[scimark-cpu-freqs.png]]
+![](/results/scimark-cpu-freqs.png)
 *A comparison of different upper limits set on CPU frequency using the SciMark 2.0 PTS test profile.*
 
 As can be observed from the graph, the tests suggest a non-linear relationship between the upper limit set on CPU frequency and the performance per watt of a program, with peak energy efficiency being achieved somewhere between minimum and maximum CPU frequency. [^d]. 
